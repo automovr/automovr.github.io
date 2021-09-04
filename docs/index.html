@@ -7,6 +7,7 @@
 <head>
 <link rel="shortcut icon" href="img/ftm1337.jpg" />
 <style>
+
 /*
 f2a007 ello
 53cbc9 aqua
@@ -17,15 +18,32 @@ e1147b pink
 *{font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}
 html{background:#101028;}
 body{;margin:0}
-.accross{background:#e1147b;color:#fff;position:absolute;top:0;width:100%;height: max-content;text-align: center;font-size:3em}
-.accross2{background:#e1147b;color:#fff;position:absolute;bottom:0;width:100%;height: max-content;text-align: center;font-size:2em;padding:10px 0}
-.cen,.cs,.cs2{text-align: center;font-size: 2em;color: #fff}
+.accross{background:#e1147b;color:#fff;position:absolute;top:0;width:100%;height: max-content;text-align: center;font-size:2em}
+.accross2{background:#e1147b;color:#fff;position:absolute;bottom:0;width:100%;height: max-content;text-align: center;font-size:2em;line-height: 2}
+.cen,.cs,.cs2{text-align: center;font-size: 1.25em;color: #fff}
 .cs2 a{color: #f2a007}
-.cen{font-size: 5em}
+.cen{font-size: 3em}
+.lownav-full{display:none}
+.lownav-half{display:block}
+.lownav-full:hover,.lownav-half:hover{background:aqua;color:#101028;}
+button{position: relative;bottom: 6px;border-radius: 50%;width: 32px;height: 32px;background: #53cbc9  ;padding:0}
+button:hover{background: aqua;}
+button:hover .lownav-half{background: transparent}
+@media(min-width:641px){
+	.lownav-full{display:block}
+	.lownav-half{display:none}
+	button{border-radius: 32px;width: auto;height: 32px ;padding:5px}
+}
+
+
+
 </style>
 
 <div class="accross">
-autoMOVR
+MOVR.club
+<button id="cw"><span  class="lownav-half">⏻</span><span  class="lownav-full" onclick="cw()">⏻ Connect Wallet</span></button>
+<button id="cw"><span  class="lownav-half">⚙</span><span  class="lownav-full" onclick="alert
+	('Select Currency:\n+ AVAX (C-chain)\n+ BNB (Testnet)\n+ ETH (Arbitrum)\n+ FTM\n+ KCS\n= MOVR\n+ XDAI')">⚙ Switch Network</span></button>
 </div>
 <br><br>
 <br><br>
@@ -39,8 +57,39 @@ Casino Opening Soon!
 <br><br>
 <div class="cen">	🎰 AutoMOVR</div>
 <div class="accross2">
-(C) autoMOVR
+	<div class="lownav" style="display:grid;grid-template-columns:auto auto auto">
+		<div class="lownav-full">🏅 LeaderBoard</div>
+		<div class="lownav-full">🎲 Toss a Coin</div>
+		<div class="lownav-full">📜 Game History</div>
+		<div class="lownav-half">🏅</div>
+		<div class="lownav-half">🎲</div>
+		<div class="lownav-half">📜</div>
+	</div>
 </div>
+
+
+<script>
+window.addEventListener('load',async function()
+{
+	if(window.ethereum&&Number(window.ethereum.chainId)==1285){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
+	else{web3 = new Web3("https://rpc.moonriver.moonbeam.network")}
+	//lb();arf();
+	//jpsv_s_f();
+	//gub();svf();
+}, false);
+uac="";
+async function cw()
+{
+	if(!(Number(window.ethereum.chainId)==321)){$("cw").innerHTML="Wrong network";return(0)}
+	const UAC = await ethereum.request({ method: 'eth_requestAccounts' });
+	uac = UAC[0];
+	$("cw").innerHTML= (uac).substr(0,6) +"..."+(uac).substr(38);
+	web3.eth.Contract.defaultAccount=uac;
+	window.ethereum.enable();
+	gub();
+}
+function $(_) {return document.getElementById(_);}
+</script>
 
 
 </html>
